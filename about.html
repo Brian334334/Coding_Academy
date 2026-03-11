@@ -36,7 +36,7 @@
 
         /* Main Header */
         header {
-            padding: 20px 10%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,7 +49,7 @@
 
         .logo-area {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 20px;
             color: var(--kis-navy);
             font-weight: bold;
         }
@@ -57,30 +57,57 @@
         nav a {
             text-decoration: none;
             color: var(--kis-navy);
-            margin-left: 30px;
+            margin-left: 20px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
         }
+        nav a:hover {
+            color: var(--kis-gold);
+        }
 
-        /* Hero Banner - Updated with requested MacBook Coding image */
+        /* Hero Video Section */
         .hero-banner {
             position: relative;
-            height: 550px;
-            /* Using the direct source for Unsplash photo m_HRfLhgABo */
-            background: linear-gradient(rgba(0, 45, 86, 0.6), rgba(0, 45, 86, 0.4)), 
-                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80') no-repeat center bottom/cover;
+            height: 80vh; /* Responsive height */
+            min-height: 400px;
+            width: 100%;
+            overflow: hidden;
             display: flex;
             align-items: center;
             padding: 0 10%;
         }
 
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 45, 86, 0.5); /* Darkens video for text readability */
+            z-index: -1;
+        }
+
         .hero-title {
             color: white;
             font-family: 'Playfair Display', serif;
-            font-size: 60px;
+            font-size: clamp(40px, 8vw, 70px); /* Responsive font sizing */
             text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
             margin: 0;
+            line-height: 1.1;
         }
 
         /* Stats Bar */
@@ -89,7 +116,8 @@
             color: white;
             padding: 40px 10%;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
             text-align: center;
         }
 
@@ -110,16 +138,16 @@
 
         /* Section Intro */
         .intro-section {
-            padding: 100px 10%;
+            padding: 80px 10%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
             align-items: center;
         }
 
         .serif-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
+            font-size: clamp(30px, 5vw, 42px);
             color: var(--kis-navy);
             margin-bottom: 20px;
             line-height: 1.2;
@@ -135,43 +163,44 @@
         /* Overlapping Image Box */
         .overlap-container {
             position: relative;
-            padding: 100px 10% 180px 10%;
+            padding: 60px 10% 120px 10%;
             background: #f9f9f9;
         }
 
         .overlap-img {
-            width: 70%;
-            height: 500px;
+            width: 80%;
+            height: 450px;
             object-fit: cover;
-            box-shadow: 20px 20px 0px var(--kis-gold);
+            box-shadow: 15px 15px 0px var(--kis-gold);
+            display: block;
         }
 
         .overlap-card {
             position: absolute;
-            top: 200px;
-            right: 10%;
-            width: 40%;
+            bottom: 40px;
+            right: 5%;
+            width: 45%;
             background: var(--kis-navy);
             color: white;
-            padding: 60px;
+            padding: 40px;
             box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
         }
 
         .overlap-card h2 {
             font-family: 'Playfair Display', serif;
             margin-top: 0;
-            font-size: 32px;
+            font-size: 28px;
         }
 
         /* Leadership Section */
         .leadership-section {
-            padding: 100px 10%;
+            padding: 80px 10%;
             text-align: center;
         }
 
         .faculty-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
@@ -180,7 +209,7 @@
             width: 100%;
             height: 350px;
             object-fit: cover;
-            filter: grayscale(100%);
+            filter: grayscale(0%);
             transition: 0.4s ease;
         }
 
@@ -206,18 +235,18 @@
         /* Call to Action */
         .cta-section {
             background: var(--light-bg);
-            padding: 100px 10%;
+            padding: 80px 10%;
             text-align: center;
         }
 
         .btn {
             display: inline-block;
-            padding: 18px 45px;
+            padding: 18px 35px;
             background: var(--kis-navy);
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 2px;
             margin: 10px;
             transition: 0.3s;
@@ -237,7 +266,7 @@
         footer {
             background: #0a1a2a;
             color: rgba(255,255,255,0.6);
-            padding: 80px 10%;
+            padding: 60px 10%;
             text-align: center;
             border-top: 5px solid var(--kis-gold);
         }
@@ -247,30 +276,47 @@
             color: white;
             font-size: 26px;
             margin-bottom: 25px;
-            letter-spacing: 1px;
         }
 
-        @media (max-width: 900px) {
-            .intro-section, .faculty-grid, .stats-bar { grid-template-columns: 1fr; gap: 40px; }
-            .overlap-card { position: relative; width: auto; right: 0; top: -50px; padding: 40px; }
-            .overlap-img { width: 100%; }
-            .hero-title { font-size: 40px; }
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav a { margin: 0 10px; font-size: 10px; }
+            
+            .overlap-container { padding-bottom: 40px; }
+            .overlap-img { width: 100%; height: 300px; box-shadow: 10px 10px 0px var(--kis-gold); }
+            .overlap-card { 
+                position: static; 
+                width: auto; 
+                margin-top: -30px; 
+                margin-left: 10px;
+                margin-right: 10px;
+                padding: 30px; 
+            }
+            
+            .hero-banner { height: 60vh; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-area">GLOBAL ACADEMY</div>
+        <div class="logo-area">NGA CODING ACADEMY</div>
         <nav>
             <a href="#">Home</a>
             <a href="#">About us</a>
-            <a href="#">Community</a>
+            <a href="#">Contact Us</a>
             <a href="#">Apply</a>
         </nav>
     </header>
 
     <div class="hero-banner">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="video/video.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="hero-overlay"></div>
+        
         <h1 class="hero-title">About Our <br><i>Academy</i></h1>
     </div>
 
@@ -296,37 +342,37 @@
     <section class="intro-section">
         <div>
             <div class="accent-line"></div>
-            <h2 class="serif-heading">A Tradition of <br>Technical Excellence</h2>
-            <p>At the Global Coding Academy, we believe that technology is the language of modern leadership. Our curriculum is designed to challenge the intellect while nurturing the creative spirit in an increasingly digital world.</p>
+            <h2 class="serif-heading">A Legacy of <br>Innovation</h2>
+            <p>At the NGA Coding Academy, we believe coding is the new literacy of the global elite. Our physical campus serves as a sanctuary for focused learning, where the next generation of tech leaders is forged through discipline and expert guidance.</p>
         </div>
         <div style="font-size: 14px; line-height: 2;">
-            <p><strong>DESIGNED FOR IMPACT</strong><br>
-            We follow an international framework that combines rigorous computer science fundamentals with the flexibility of design thinking. Our graduates don't just write code; they build the future of global industry through ethical innovation and technical mastery.</p>
+            <p><strong>BUILT FOR SUCCESS</strong><br>
+            Our School provides a rigorous environment that mirrors the world’s top tech hubs. By learning in person, our students develop the soft skills, networking habits, and technical precision required to lead in the 21st-century economy.</p>
         </div>
     </section>
 
     <section class="overlap-container">
         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" class="overlap-img" alt="Students Collaborating">
         <div class="overlap-card">
-            <h2>The Applied Learning Model</h2>
-            <p>Education at our academy goes beyond the screen. We engage in collaborative sprints, hardware prototyping, and real-world consultancy projects that prepare students for the complexities of the professional world.</p>
+            <h2>Education for the Innovation Economy</h2>
+            <p>At Our Academy, coding is more than a subject—it’s a mindset. Our Applied Learning Model ensures students don't just sit behind desks; they engage in hands-on collaborative sprints to solve complex logic puzzles and participate in hardware prototyping to see their code interact with the physical world.</p>
         </div>
     </section>
 
     <section class="leadership-section">
         <h2 class="serif-heading">Academic Leadership</h2>
-        <p>Our faculty members are recruited from the world’s leading tech hubs and research institutions to guide the next generation.</p>
+        <p>Our faculty members are recruited from the world’s leading tech hubs.</p>
         
         <div class="faculty-grid">
             <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Dr. Sarah Chen">
-                <h4>Dr. Sarah Chen</h4>
-                <p>Dean of Computer Science</p>
+                <img src="images/Project Manager.png" alt="Project Manager">
+                <h4>Josephine Uwitonze</h4>
+                <p>Project Manager</p>
             </div>
             <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80" alt="Marcus Vane">
-                <h4>Marcus Vane</h4>
-                <p>Director of Innovation</p>
+                <img src="images/Nzigamasabo Assadou.png" alt="Nzigamasabo Assadou">
+                <h4>Nzigamasabo Assadou</h4>
+                <p>Year 1 Class Teacher</p>
             </div>
             <div class="faculty-card">
                 <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Dr. Elena Rossi">
@@ -338,16 +384,16 @@
 
     <section class="cta-section">
         <h2 class="serif-heading">Join Our Next Cohort</h2>
-        <p>Admissions for the Fall 2026 semester are now open for international and local applicants.</p>
+        <p>Admissions for the Fall 2026 semester are now open.</p>
         <a href="#" class="btn">INQUIRE TODAY</a>
         <a href="#" class="btn btn-outline">VIEW CURRICULUM</a>
     </section>
 
     <footer>
-        <div class="footer-logo">GLOBAL CODING ACADEMY</div>
-        <p>123 Innovation Way, Tech District | Seoul, South Korea</p>
-        <p>Email: admissions@globalcoding.edu.kr | Tel: +82 2-1234-5678</p>
-        <p style="margin-top: 30px; font-size: 11px; letter-spacing: 1px;">&copy; 2026 International Coding Education Network. All Rights Reserved.</p>
+        <div class="footer-logo">NGA CODING ACADEMY</div>
+        <p>KG ST 642 | Kigali, Rwanda</p>
+        <p>Email: info@ngacoding.ac.rw</p>
+        <p style="margin-top: 30px; font-size: 11px; letter-spacing: 1px;">&copy; 2026 International Coding Education Network.</p>
     </footer>
 
 </body>
